@@ -18,7 +18,7 @@ CREATE TABLE messages (
   /* Describe your table here.*/
   msgID int NOT NULL AUTO_INCREMENT,
   userID int NOT NULL,
-  text varchar(200) ,
+  message varchar(200) ,
   roomID int NOT NULL,
   PRIMARY KEY (msgID),
   FOREIGN KEY (userID) REFERENCES user (userID),
@@ -35,6 +35,6 @@ CREATE TABLE messages (
 
 
 /*  Execute this file from the command line by typing:
- *    mysql -u root < server/schema.sql
+ *    mysql -u student < server/schema.sql
  *  to create the database and the tables.*/
 

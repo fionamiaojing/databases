@@ -12,11 +12,11 @@ class App {
     $('#send .submit').on('click', (event) => {
       event.preventDefault();
       let newMessageObj = {};
-      newMessageObj.text = $('#inputMessage').val();
+      newMessageObj.message = $('#inputMessage').val();
       newMessageObj.username = window.location.search.replace(/[?]username=/, '');
       newMessageObj.roomname = this.currentRoom;
       $('#inputMessage').val('');
-      newMessageObj.text !== '' ? this.handleSubmit(newMessageObj) : null;
+      newMessageObj.message !== '' ? this.handleSubmit(newMessageObj) : null;
     });
     // Room Select Change Event Listener
     $(document).on('change', '#roomSelect', (event) => {
@@ -111,7 +111,7 @@ class App {
   createMessageTag(dataMessageObj) {
     let $messageContainer = $('<div>').addClass('messageBox');
     let $usernameTag = $('<span>').addClass('username').text(dataMessageObj.username);
-    let $messageTag = $('<div>').addClass('message-text').text(dataMessageObj.text);
+    let $messageTag = $('<div>').addClass('message-text').text(dataMessageObj.message);
     let $friendButton = $('<button>').addClass('addFriendButton').text('Add Friend');
     $messageContainer.append($usernameTag);
     $messageContainer.append($messageTag);

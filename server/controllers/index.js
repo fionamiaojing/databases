@@ -24,7 +24,9 @@ module.exports = {
     }, // a function which handles a get request for all messages
     post: function (req, res) {
       var body = req.body;
+      console.log('body ----------->', body);
       models.messages.post(body);
+      sendResponse(res, 'SEND', 201);
     }
   },
 
@@ -36,7 +38,12 @@ module.exports = {
         sendResponse(res, data);
       });
     },
-    post: function (req, res) {}
+    post: function (req, res) {
+      var body = req.body;
+      
+      models.users.post(body);
+      sendResponse(res, 'SEND', 201);
+    }
   }
 };
 
