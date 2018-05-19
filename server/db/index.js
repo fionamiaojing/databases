@@ -22,9 +22,16 @@ exports.connection.connect(function(err) {
   }
 });
  
-//fetch
-
-
-//post
+exports.Query = function(query) {
+  return new Promise(function(resolve, reject) {
+    exports.connection.query(query, function(error, results) {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(results);
+      }
+    });
+  });
+}
 
 
