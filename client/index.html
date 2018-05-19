@@ -14,8 +14,19 @@
         if (newSearch !== '' & newSearch !== '?') {
           newSearch += '&';
         }
-        newSearch += 'username=' + (prompt('What is your name?') || 'anonymous');
+        var username = (prompt('What is your name?') || 'anonymous').toString();
+        newSearch += 'username=' + username;
         window.location.search = newSearch;
+        $.ajax({
+          url: `http://localhost:3000/classes/users`,
+          type: 'POST',
+          data: JSON.stringify({username: username}),
+          contentType: 'application/json',
+          success: (data) => {
+            console.log(`chatterbox: Username sent ${username}`);
+          },
+          error: () => { console.error('chatterbox: Failed to send username'); },
+        });
       }
     </script>
     <!-- your scripts -->

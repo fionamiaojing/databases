@@ -50,17 +50,6 @@ module.exports = {
                 }
               });
             })
-            // .then(function(roomname) {
-            //   console.log('roomname ---->', roomname);
-            //   db.connection.query(`select roomID from room where roomname='${roomname}'`, function(error, results) {
-            //     if (error) {
-            //       console.log('error', error)
-            //     } else {
-            //       console.log(results);
-                  
-            //     }
-            //   })
-            // })
           } else {
             return results[0].roomID;
             console.log('roomname existed', results[0]);
@@ -68,7 +57,6 @@ module.exports = {
         })
       };
       
-      // findRoomID(roomname);
       
       Promise.all([findUserID(username), findRoomID(roomname)])
       .then(function(array) {
@@ -109,6 +97,7 @@ module.exports = {
         .then(function(results) {
           if (!results.length) {
             console.log('insert username')
+            console.log(`insert into user (username) values ('${username}')`)
             db.connection.query(`insert into user (username) values ('${username}')`)
           } else {
             console.log('username exists')

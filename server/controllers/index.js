@@ -17,6 +17,7 @@ var sendResponse = function(response, data, statusCode) {
 module.exports = {
   messages: {
     get: function (req, res) {
+      console.log('-------------------->',req.body)
       models.messages.get(function(data) {
         //console.log(data);
         sendResponse(res, data);
