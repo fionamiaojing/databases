@@ -23,17 +23,9 @@ module.exports = {
       });
     }, // a function which handles a get request for all messages
     post: function (req, res) {
-      var body = '';
-      req.on('data', function(chunk) {
-        console.log('----------------> in post');
-        body += chunk;
-      }).on('end', function() {
-        console.log('data is', body);
-        // models.messages.post(function (data) {
-        //   // body...
-        // })
-      });
-    } // a function which handles posting a message to the database
+      var body = req.body;
+      models.messages.post(body);
+    }
   },
 
   users: {

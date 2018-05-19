@@ -13,9 +13,11 @@ module.exports = {
         }
       });
     }, // a function which produces all the messages
-    post: function (callback) {
+    post: function (data) {
+      console.log(data);
+      //{ text: 'aaa', username: 'khjv', roomname: 'All Messages' }
       var addSql = 'insert into messages values ()';
-      db.connection.query('');
+      //db.connection.query('');
     } // a function which can be used to insert a message into the database
   },
 
