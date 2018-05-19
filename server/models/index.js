@@ -4,7 +4,7 @@ module.exports = {
   messages: {
     get: function (callback) {
       //console.log('----------------> model run')
-      db.connection.query('SELECT * from messages', function (error, results) {
+      db.connection.query('select u.username, m.text from messages m inner join user u on m.userID = u.userID', function (error, results) {
         if (error) {
           console.log('model error --------------------->');
         } else {
